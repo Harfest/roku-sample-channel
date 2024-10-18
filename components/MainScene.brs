@@ -7,7 +7,8 @@ sub init()
     ' Setup observers
     setupObservers()
 
-    centerContainer()
+    ' Setup router outlet
+    setupRouterOutlet()
 
     ' Navigate to Page A/Initial page
     navigateToHome()
@@ -17,18 +18,14 @@ sub setupObservers()
     m.global.observeField("navigateTo", "navigate")
 end sub
 
-sub centerContainer()
-    ' Center the container component
+sub setupRouterOutlet()
     di = createObject("roDeviceInfo")
     displaySize = di.GetDisplaySize()
     displayWidth = displaySize.w
     displayHeight = displaySize.h
 
-    xTranslation = (displayWidth - m.routerOutlet.width) / 2
-    yTranslation = (displayHeight - m.routerOutlet.height) / 2
-
-    m.routerOutlet.translation = [xTranslation, yTranslation]
-
+    m.routerOutlet.width = displayWidth
+    m.routerOutlet.height = displayHeight
 end sub
 
 ' function onKeyEvent(key as string, pressed as boolean) as boolean

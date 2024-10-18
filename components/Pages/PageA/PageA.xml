@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <component name="PageA" extends="Group">
-	<script type="text/brightscript" uri="pkg:/components/Pages/PageA/PageA.brs"></script>
+	<interface>
+	</interface>
 	<children>
-    <Label id="myLabelA"
-      	width="200"
-      	height="0"
-		color="0x000000FF"
-        text="Page A"
-      	/>
+		<Label id="myLabelA"
+			width="200"
+			height="0"
+			color="0x000000FF"
+			text="Page A"
+			/>
     </children>
+	<script type="text/brightscript" uri="pkg:/components/Pages/PageA/PageA.brs"></script>
 </component>

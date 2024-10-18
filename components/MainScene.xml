@@ -3,8 +3,8 @@
 	<script type="text/brightscript" uri="pkg:/components/MainScene.brs"></script>
 	<script type="text/brightscript" uri="pkg:/components/Utils/Router.brs"></script>
 	<children>
-	<Label id="headerLabel" text="Router example"/>
 	<!-- This container will receive all the screens -->
-	<Rectangle id="routerOutlet" width="900" height="600" color="0x2aacc9FF" translation="[510, 0]"/>
+	<Rectangle id="routerOutlet" color="0x00000000"/>
+	<!-- color="0x2aacc9FF" -->
     </children>
 </component>
