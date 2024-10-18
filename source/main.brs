@@ -3,7 +3,8 @@ sub main()
     m.port = CreateObject("roMessagePort")
     screen.setMessagePort(m.port)
 
-    scene = screen.CreateScene("HelloWorld")
+    scene = screen.CreateScene("MainScene")
+    scene.allowBackgroundTask = true
     screen.show()
 
     while(true)
