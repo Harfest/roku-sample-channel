@@ -5,9 +5,6 @@
 
         <!-- For service consumption -->
         <function name="getNowPlaying"/>
-        
-        <!-- For the image -->
-        <function name="getImageUrl"/>
     </interface>
 	<script type="text/brightscript" uri="pkg:/components/Services/IMDB_Service.brs"></script>
 </component>

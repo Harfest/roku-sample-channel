@@ -3,12 +3,17 @@
 	<interface>
 	</interface>
 	<children>
-		<Label id="myLabelA"
-			width="200"
-			height="0"
-			color="0x000000FF"
-			text="Page A"
-			/>
+		<RowList id="rowList"
+                itemComponentName="ItemPoster"
+                translation="[50, 50]"
+                itemSize="[1280, 432]"
+                rowItemSize="[[258, 368]]"
+                rowItemSpacing="[[20, 0]]"
+                visible="true"
+                showRowLabel="[true]"
+                rowLabelOffset="[[0, 15]]" />
+				<!-- rowSpacings="[65]" -->
+				<!-- If the array contains fewer elements than the number of rows in the data model, the y-dimension value of the itemSize field is used as the height of the extra rows. -->
     </children>
 	<script type="text/brightscript" uri="pkg:/components/Pages/PageA/PageA.brs"></script>
 </component>

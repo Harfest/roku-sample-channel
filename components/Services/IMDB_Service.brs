@@ -37,20 +37,50 @@ function getNowPlaying()
     ' I need to process this url in case I receive some args (like a movie id)
     url = getPathAsUrl("nowPlaying")
 
-    ' HttpTask is another option to handle request more specifically
-    ' it adds headers, methods and more details in a more 'friendly' way 
     ?"Preparing to request to " url
-    ' https://developer.roku.com/es-mx/docs/references/scenegraph/list-and-grid-nodes/rowlist.md#rowlist-xml-component
 
-    m.IMDBTask.observeField("content", "onContentChanged")
+    m.IMDBTask.observeField("content", "onNowPlayingContentChanged")
     m.IMDBTask.contentUri = url
     m.IMDBTask.control = "RUN"
 end function
 
-sub onContentChanged(res as object)
+sub onNowPlayingContentChanged(res as object)
     data = res.getData()
+    resultsCollection = data.results
 
-    ' The content should be a single ContentNode that has one child ContentNode for each row.
-    ' Process data to create an assoc array that saves everything what we need
-    ?"Result: " data
+    contentNode = createObject("roSGNode", "ContentNode")
+
+    totalRows = resultsCollection.count() / 5
+
+    itemIndex = 0
+    for x = 0 to totalRows - 1
+        rowNode = createObject("roSGNode", "ContentNode")
+        rowNode.title = "Row " + StrI(x + 1)
+
+        for y = 1 to 5
+            itemNode = createObject("roSGNode", "ItemModel")
+            item = resultsCollection[itemIndex]
+
+            itemNode.adult = item.adult
+            itemNode.backdropPath = getImageUrl(item.backdrop_path)
+            itemNode.id = item.id
+            itemNode.originalLanguage = item.original_language
+            itemNode.originalTitle = item.original_title
+            itemNode.overview = item.overview
+            itemNode.popularity = item.popularity
+            itemNode.posterPath = getImageUrl(item.poster_path)
+            itemNode.releaseDate = item.release_date
+            itemNode.title = item.title
+            itemNode.video = item.video
+            itemNode.voteAverage = item.vote_average
+            itemNode.voteCount = item.vote_count
+            itemNode.videoUrl = "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_1MB.mp4"
+            rowNode.appendChild(itemNode)
+            itemIndex++
+        end for
+
+        contentNode.appendChild(rowNode)
+    end for
+
+    m.top.nowPlayingContent = contentNode
 end sub

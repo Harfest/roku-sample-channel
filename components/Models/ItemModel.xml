@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="ItemModel" extends="ContentNode">
+    <interface>
+        <field id="adult" type="boolean" />
+        <field id="backdropPath" type="string" />
+        <field id="id" type="integer" />
+        <field id="originalLanguage" type="string" />
+        <field id="originalTitle" type="string" />
+        <field id="overview" type="string" />
+        <field id="videoUrl" type="string" />
+        <field id="popularity" type="float" />
+        <field id="posterPath" type="string" />
+        <field id="releaseDate" type="string" />
+        <field id="title" type="string" />
+        <field id="video" type="boolean" />
+        <field id="voteAverage" type="float" />
+        <field id="voteCount" type="float" />
+    </interface>
+	<script type="text/brightscript" uri="pkg:/components/Services/IMDB_Service.brs"></script>
+</component>
