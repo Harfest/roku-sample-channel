@@ -1,4 +1,5 @@
 sub init()
+    m.content = invalid
     m.tmdbService = createObject("roSGNode", "IMDBService")
     m.tmdbService.callFunc("getNowPlaying")
 
@@ -17,7 +18,8 @@ sub setupObservers()
 end sub
 
 sub nowPlayingContentChanged(data)
-    rowsData = data.getData()
+    m.content = data.getData()
+    rowsData = m.content
     m.rowList.numRows= rowsData.getChildCount()
     m.rowList.observeField("rowItemSelected", "onRowListItemSelected")
     m.rowList.content = rowsData
@@ -34,10 +36,6 @@ function onKeyEvent(key as String, pressed as boolean) as Boolean
     if not pressed then return handled
 
     ?"Key pressed on Page A " key " " pressed
-
-    if key = "ok"
-        handled = true
-    end if
 
     ' if key = "right"
     '     pressed = true
