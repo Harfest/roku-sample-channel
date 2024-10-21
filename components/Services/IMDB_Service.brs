@@ -46,7 +46,6 @@ function getBackdropImageUrl(imgPath as String)
 end function
 
 sub getNowPlaying()
-    ' I need to process this url in case I receive some args (like a movie id)
     url = getPathAsUrl("nowPlaying")
 
     ?"Preparing to request to " url
@@ -83,6 +82,7 @@ sub onNowPlayingContentChanged(res as object)
             itemNode = createObject("roSGNode", "ItemModel")
             item = resultsCollection[itemIndex]
 
+            ' This data can (and probably should) be processed on the model(s) itself
             itemNode.adult = item.adult
             itemNode.backdropPath = getBackdropImageUrl(item.backdrop_path)
             itemNode.videoId = StrI(item.id).replace(" ", "") ' Transform the id to a string
@@ -112,13 +112,14 @@ sub onGetMovieByIdChanged(res as object)
 
     movieModel = createObject("roSGNode", "MovieModel")
 
+    ' This data can (and probably should) be processed on the model itself
     movieModel.adult = data.adult
     movieModel.backdropPath = getBackdropImageUrl(data.backdrop_path)
     movieModel.belongsToCollection = data.belongs_to_collection
     movieModel.budget = data.budget
     movieModel.genres = data.genres
     movieModel.homepage = data.homepage
-    movieModel.movieId = data.id
+    movieModel.movieId = StrI(data.id).replace(" ", "")
     movieModel.imdbId = data.imdb_id
     movieModel.originCountry = data.origin_country
     movieModel.originalLanguage = data.original_language

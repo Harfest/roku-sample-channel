@@ -2,6 +2,6 @@
 <component name="PageB" extends="BaseScreen">
 	<script type="text/brightscript" uri="pkg:/components/Pages/PageB/PageB.brs"></script>
 	<children>
-		<Poster id="bgPoster" />
+		<Poster id="bgPoster" loadDisplayMode="scaleToFill" width="1920" height="1080" loadWidth="1920" loadHeight="1080" />
     </children>
 </component>

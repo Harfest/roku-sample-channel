@@ -23,6 +23,12 @@ sub navigate(event as object)
     navigationData = event.getData()
     initData = invalid
     navPage = navigationData.page
+
+    if navPage = "back"
+        navigateBack()
+        return
+    end if
+
     if navigationData.initData <> invalid
         initData = navigationData.initData
     end if
@@ -38,10 +44,10 @@ sub navigate(event as object)
     ' Push the reference to the stack
     m.stack.push(newPage)
 
-    ' Remove the child of the router outlet or make it invisible
+    ' Remove the child of the router outlet or just make it invisible
     ' m.routerOutlet.removeChildIndex(0)
-    prevChild = m.routerOutlet.getChild(m.routerOutlet.getChildCount() - 1)
-    prevChild.visible = false
+    prevPage = m.routerOutlet.getChild(m.routerOutlet.getChildCount() - 1)
+    prevPage.visible = false
 
     ' Place the new screen as child of the router outlet
     m.routerOutlet.appendChild(newPage)
@@ -51,4 +57,6 @@ sub navigate(event as object)
 end sub
 
 sub navigateBack()
+    ' TODO: Implement navigate back
+    ? "Let's navigate back"
 end sub

@@ -40,6 +40,9 @@ function onKeyEvent(key as string, pressed as boolean) as boolean
     if not pressed then return handled
 
     if key = "back"
+        m.global.navigateTo = {
+            page: "back",
+        }
         handled = true
     end if
 
