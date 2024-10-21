@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="VideoPlayer" extends="BaseScreen">
+	<script type="text/brightscript" uri="pkg:/components/Components/VideoPlayer/VideoPlayer.brs"></script>
+	<children>
+        <Video id="videoPlayer"/>
+    </children>
+</component>
