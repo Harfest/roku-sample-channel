@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="BaseScreen" extends="Group">
+	<interface>
+        <field id="initData" type="assocArray" />
+	</interface>
+	<script type="text/brightscript" uri="pkg:/components/Pages/BaseScreen/BaseScreen.brs"></script>
+</component>

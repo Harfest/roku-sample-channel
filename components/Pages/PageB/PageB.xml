@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="PageB" extends="Group">
+<component name="PageB" extends="BaseScreen">
 	<script type="text/brightscript" uri="pkg:/components/Pages/PageB/PageB.brs"></script>
 	<children>
-    <Label id="myLabelB"
-      	width="200"
-      	height="0"
-        text="Page B"
-      	/>
+		<Poster id="bgPoster" />
     </children>
 </component>

@@ -28,7 +28,23 @@ sub nowPlayingContentChanged(data)
 end sub
 
 sub onRowListItemSelected(evt as object)
-    ? evt.getData()
+    rowItemSelected = evt.getData()
+    selectedRowIndex = rowItemSelected[0]
+    selectedColumnIndex = rowItemSelected[1]
+
+    ' Get the row
+    selectedRow = m.content.getChild(selectedRowIndex)
+    ' get by the column
+    selectedItem = selectedRow.getChild(selectedColumnIndex)
+
+    movieId = selectedItem.videoId
+
+    m.global.navigateTo = {
+        page: "PageB",
+        initData: {
+            movieId: movieId
+        }
+    }
 end sub
 
 function onKeyEvent(key as String, pressed as boolean) as Boolean

@@ -2,9 +2,11 @@
 <component name="IMDBService" extends="Group">
     <interface>
         <field id="nowPlayingContent" type="node" />
+        <field id="movieById" type="node" />
 
         <!-- For service consumption -->
         <function name="getNowPlaying"/>
+        <function name="getMovieById"/>
     </interface>
 	<script type="text/brightscript" uri="pkg:/components/Services/IMDB_Service.brs"></script>
 </component>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="MovieModel" extends="ContentNode">
+    <interface>
+        <field id="adult" type="boolean" />
+        <field id="backdropPath" type="string" />
+        <field id="belongsToCollection" type="assocArray" />
+        <field id="budget" type="integer" />
+        <field id="genres" type="roArray" />
+        <field id="homepage" type="string" />
+        <field id="movieId" type="string" />
+        <field id="imdbId" type="string" />
+        <field id="originCountry" type="roArray" />
+        <field id="originalLanguage" type="string" />
+        <field id="originalTitle" type="string" />
+        <field id="overview" type="string" />
+        <field id="popularity" type="float" />
+        <field id="posterPath" type="string" />
+        <field id="productionCompanies" type="roArray" />
+        <field id="productionCountries" type="roArray" />
+        <field id="releaseDate" type="string" />
+        <field id="revenue" type="integer" />
+        <field id="runtime" type="integer" />
+        <field id="spokenLanguages" type="roArray" />
+        <field id="status" type="string" />
+        <field id="tagline" type="string" />
+        <field id="title" type="string" />
+        <field id="video" type="boolean" />
+        <field id="voteAverage" type="integer" />
+        <field id="voteCount" type="integer" />
+    </interface>
+	<script type="text/brightscript" uri="pkg:/components/Services/IMDB_Service.brs"></script>
+</component>

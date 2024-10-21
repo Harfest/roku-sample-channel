@@ -3,7 +3,7 @@
     <interface>
         <field id="adult" type="boolean" />
         <field id="backdropPath" type="string" />
-        <field id="id" type="integer" />
+        <field id="videoId" type="string" />
         <field id="originalLanguage" type="string" />
         <field id="originalTitle" type="string" />
         <field id="overview" type="string" />

@@ -23,4 +23,5 @@ splash_min_time=1
 
 base_url=https://api.themoviedb.org/3
 base_img_url=https://image.tmdb.org/t/p/w300
+base_backdrop_img_url=https://image.tmdb.org/t/p/original
 api_key=78dc7b495e765878dd640d60d304651b
