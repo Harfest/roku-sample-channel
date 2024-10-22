@@ -2,6 +2,10 @@
 <component name="PageB" extends="BaseScreen">
 	<script type="text/brightscript" uri="pkg:/components/Pages/PageB/PageB.brs"></script>
 	<children>
-		<Poster id="bgPoster" loadDisplayMode="scaleToFill" width="1920" height="1080" />
+		<Poster id="bgPoster" loadDisplayMode="scaleToFill" width="1920" height="1080" blendColor="0x6B6A6AFF"/>
+		<LayoutGroup itemSpacings="[21]" translation="[120, 150]">
+			<Label id="movieTitle" vertAlign="center" width="753" wrap="true" maxLines="2" />
+			<Label id="movieDescription" vertAlign="center" width="753" wrap="true" />
+		</LayoutGroup>
     </children>
 </component>

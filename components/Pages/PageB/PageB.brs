@@ -10,6 +10,8 @@ end sub
 sub setupRefs()
     top = m.top
     m.bgPoster = top.findNode("bgPoster")
+    m.titleLabel = top.findNode("movieTitle")
+    m.movieDescription = top.findNode("movieDescription")
 end sub
 
 sub setupObservers()
@@ -32,11 +34,12 @@ end sub
 sub movieByIdChanged(evt as object)
     m.content = evt.getData()
 
-    setupBackground()
-end sub
-
-sub setupBackground()
     m.bgPoster.uri = m.content.backdropPath
+    m.titleLabel.font.size = 102
+    m.titleLabel.text = m.content.title
+
+    m.movieDescription.font.size = 27
+    m.movieDescription.text = m.content.overview
 end sub
 
 function onKeyEvent(key as string, pressed as boolean) as boolean
