@@ -1,6 +1,6 @@
 ##   Channel Details
-title=Hello World
-subtitle=Hola mundo
+title=Hazo Channel
+subtitle=Hello World
 major_version=1
 minor_version=0
 build_version=00001
@@ -17,6 +17,9 @@ mm_icon_focus_sd=pkg:/images/channel-poster_sd.png
 splash_screen_fhd=pkg:/images/splash-screen_fhd.jpg
 splash_screen_hd=pkg:/images/splash-screen_hd.jpg
 splash_screen_sd=pkg:/images/splash-screen_sd.jpg
+
+# Resolution
+ui_resolutions=fhd
 
 splash_color=#CCCCCC
 splash_min_time=1
