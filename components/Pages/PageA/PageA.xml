@@ -22,7 +22,7 @@
 				<!-- If the array contains fewer elements than the number of rows in the data model, the y-dimension value of the itemSize field is used as the height of the extra rows. -->
 
 				<Animation id="rowOpacityAnimation" duration="1" repeat="false" easeFunction="linear" >
-					<FloatFieldInterpolator id = "opacityInterpolation"
+					<FloatFieldInterpolator id="opacityInterpolation"
 						key="[0.0, 1.0]"
 						keyValue="[ 0.0, 1.0 ]"
 					fieldToInterp="rowList.opacity" />

@@ -2,10 +2,35 @@
 <component name="PageB" extends="BaseScreen">
 	<script type="text/brightscript" uri="pkg:/components/Pages/PageB/PageB.brs"></script>
 	<children>
-		<Poster id="bgPoster" loadDisplayMode="scaleToFill" width="1920" height="1080" blendColor="0x6B6A6AFF"/>
-		<LayoutGroup itemSpacings="[21]" translation="[120, 150]">
+		<Poster id="bgPoster" loadDisplayMode="scaleToFill" width="1920" height="1080" blendColor="0x6B6A6AFF" opacity="0.0" />
+		<LayoutGroup id="metadataContainer" itemSpacings="[21]" translation="[120, 150]" opacity="0.0">
 			<Label id="movieTitle" vertAlign="center" width="753" wrap="true" maxLines="2" />
 			<Label id="movieDescription" vertAlign="center" width="753" wrap="true" />
 		</LayoutGroup>
+
+		<!-- Animations -->
+		<Animation id="bgOpacitAnimation" duration="1" repeat="false" easeFunction="linear" >
+			<FloatFieldInterpolator id="opacityInterpolation"
+				key="[0.0, 1.0]"
+				keyValue="[ 0.0, 1.0 ]"
+			fieldToInterp="bgPoster.opacity" />
+		</Animation>
+
+		<Animation id="metadataOpacitAnimation" duration="0.5" repeat="false" easeFunction="linear" >
+			<FloatFieldInterpolator id="metadataOpacityInterpolation"
+				key="[0.0, 1.0]"
+				keyValue="[ 0.0, 1.0 ]"
+			fieldToInterp="metadataContainer.opacity" />
+		</Animation>
+
+		<Animation
+            id="metadataTranslationAnimation" duration="0.5" repeat="false" easeFunction="linear">
+            <Vector2DFieldInterpolator
+                id = "testVector2D"
+                key="[0.0, 1.0]"
+                keyValue="[[120, 168], [120, 150]]"
+                fieldToInterp="metadataContainer.translation" />
+
+        </Animation>
     </children>
 </component>
