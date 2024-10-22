@@ -6,6 +6,8 @@ sub init()
     setupRefs()
 
     setupObservers()
+
+    m.initialFocusNode = m.rowList
 end sub
 
 sub setupRefs()
@@ -17,10 +19,16 @@ sub setupObservers()
     m.tmdbService.observeField("nowPlayingContent", "nowPlayingContentChanged")
 end sub
 
+sub onScreenEnter()
+    ? "Screen Page A entered"
+    if m.content <> invalid
+        m.initialFocusNode.setFocus(true)
+    end if
+end sub
+
 sub nowPlayingContentChanged(data)
     m.content = data.getData()
     rowsData = m.content
-    m.rowList.numRows= rowsData.getChildCount()
     m.rowList.observeField("rowItemSelected", "onRowListItemSelected")
     m.rowList.content = rowsData
 

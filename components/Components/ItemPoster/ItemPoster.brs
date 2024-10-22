@@ -30,7 +30,7 @@ sub contentChanged(evt as object)
 end sub
 
 sub setupPoster()
-    m.poster.width = 258
-    m.poster.height = 368
+    m.poster.width = m.top.width
+    m.poster.height = m.top.height
     m.poster.uri = m.content.posterPath
 end sub

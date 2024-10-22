@@ -57,6 +57,14 @@ sub navigate(event as object)
 end sub
 
 sub navigateBack()
-    ' TODO: Implement navigate back
-    ? "Let's navigate back"
+    ' remove the peek of the stack
+    m.stack.pop()
+
+    ' remove from the view
+    currPage = m.routerOutlet.getChild(m.routerOutlet.getChildCount() - 1)
+    m.routerOutlet.removeChild(currPage)
+
+    ' Focus on the prev page
+    prevPage = m.routerOutlet.getChild(m.routerOutlet.getChildCount() - 1)
+    prevPage.visible = true
 end sub

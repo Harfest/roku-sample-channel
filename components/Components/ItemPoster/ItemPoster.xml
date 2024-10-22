@@ -2,6 +2,8 @@
 <component name="ItemPoster" extends="Group">
     <interface>
         <field id="itemContent" type="node" onChange="contentChanged" />
+        <field id="width" type="float" />
+        <field id="height" type="float" />
     </interface>
     <children>
         <Poster id="itemPoster"/>

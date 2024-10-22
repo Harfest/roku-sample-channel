@@ -25,6 +25,10 @@ sub initDataReceived(evt)
     m.tmdbService.callFunc("getMovieById", movieId)
 end sub
 
+sub onScreenEnter()
+    ? "Screen Page B entered"
+end sub
+
 sub movieByIdChanged(evt as object)
     m.content = evt.getData()
 

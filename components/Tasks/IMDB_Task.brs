@@ -14,5 +14,5 @@ end sub
 
 sub onStateChanged(evt as object)
     data = evt.getData()
-    ?"Task state: " data
+    ' ?"Task state: " data
 end sub
