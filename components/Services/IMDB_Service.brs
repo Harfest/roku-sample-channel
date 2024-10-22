@@ -71,14 +71,16 @@ sub onNowPlayingContentChanged(res as object)
 
     contentNode = createObject("roSGNode", "ContentNode")
 
-    totalRows = resultsCollection.count() / 5
+    totalRows = resultsCollection.count() / 10
+
+    rowsTitles = ["Trending", "Most viewed"]
 
     itemIndex = 0
     for x = 0 to totalRows - 1
         rowNode = createObject("roSGNode", "ContentNode")
-        rowNode.title = "Row " + StrI(x + 1)
+        rowNode.title = rowsTitles[x]
 
-        for y = 1 to 5
+        for y = 1 to 10
             itemNode = createObject("roSGNode", "ItemModel")
             item = resultsCollection[itemIndex]
 

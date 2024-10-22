@@ -4,17 +4,29 @@
 	</interface>
 	<children>
 		<RowList id="rowList"
+				opacity="0.0"
                 itemComponentName="ItemPoster"
                 translation="[50, 50]"
-                itemSize="[1280, 453]"
-				numRows="3"
+                itemSize="[1820, 453]"
+				numRows="2"
                 rowItemSize="[[258, 368]]"
                 rowItemSpacing="[[20, 0]]"
                 visible="true"
                 showRowLabel="[true]"
-                rowLabelOffset="[[0, 15]]" />
+                rowLabelOffset="[[0, 15]]"
+				showRowCounter="[true, false]"
+				drawFocusFeedbackOnTop="true"
+				vertFocusAnimationStyle="fixedFocusWrap"
+				rowFocusAnimationStyle="fixedFocusWrap" />
 				<!-- rowSpacings="[65]" -->
 				<!-- If the array contains fewer elements than the number of rows in the data model, the y-dimension value of the itemSize field is used as the height of the extra rows. -->
+
+				<Animation id="rowOpacityAnimation" duration="1" repeat="false" easeFunction="linear" >
+					<FloatFieldInterpolator id = "opacityInterpolation"
+						key="[0.0, 1.0]"
+						keyValue="[ 0.0, 1.0 ]"
+					fieldToInterp="rowList.opacity" />
+				</Animation>
     </children>
 	<script type="text/brightscript" uri="pkg:/components/Pages/PageA/PageA.brs"></script>
 </component>

@@ -5,7 +5,7 @@ end sub
 
 sub renderTracker(evt as object)
     renderTrack = evt.getData()
-    if renderTrack = "partial"
+    if renderTrack = "full"
         onScreenEnter()
     end if
 end sub

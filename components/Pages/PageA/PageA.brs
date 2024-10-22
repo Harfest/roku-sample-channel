@@ -13,6 +13,9 @@ end sub
 sub setupRefs()
     top = m.top
     m.rowList = top.findNode("rowList")
+
+    ' Animation
+    m.rowAnimation = top.findNode("rowOpacityAnimation")
 end sub
 
 sub setupObservers()
@@ -22,6 +25,7 @@ end sub
 sub onScreenEnter()
     ? "Screen Page A entered"
     if m.content <> invalid
+        m.rowAnimation.control = "start"
         m.initialFocusNode.setFocus(true)
     end if
 end sub
@@ -31,6 +35,8 @@ sub nowPlayingContentChanged(data)
     rowsData = m.content
     m.rowList.observeField("rowItemSelected", "onRowListItemSelected")
     m.rowList.content = rowsData
+
+    m.rowAnimation.control = "start"
 
     m.rowList.setFocus(true)
 end sub
@@ -46,6 +52,8 @@ sub onRowListItemSelected(evt as object)
     selectedItem = selectedRow.getChild(selectedColumnIndex)
 
     movieId = selectedItem.videoId
+
+    m.rowList.opacity = 0.0
 
     m.global.navigateTo = {
         page: "PageB",
