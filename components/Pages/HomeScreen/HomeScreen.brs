@@ -13,19 +13,25 @@ end sub
 sub setupRefs()
     top = m.top
     m.rowList = top.findNode("rowList")
+    m.sampleHero = top.findNode("sampleHero")
 
     ' Animation
     m.rowAnimation = top.findNode("rowOpacityAnimation")
+    m.heroAnimation = top.findNode("heroOpacityAnimation")
 end sub
 
 sub setupObservers()
     m.tmdbService.observeField("nowPlayingContent", "nowPlayingContentChanged")
+    m.sampleHero.observeFieldScoped("loadStatus", "onHeroLoadStatusChanged")
+    m.rowList.observeField("rowItemSelected", "onRowListItemSelected")
+    m.rowList.observeField("rowItemFocused", "onRowItemFocused")
 end sub
 
 sub onScreenEnter()
     ? "Screen Page A entered"
     if m.content <> invalid
         m.rowAnimation.control = "start"
+        m.heroAnimation.control = "start"
         m.initialFocusNode.setFocus(true)
     end if
 end sub
@@ -33,7 +39,6 @@ end sub
 sub nowPlayingContentChanged(data)
     m.content = data.getData()
     rowsData = m.content
-    m.rowList.observeField("rowItemSelected", "onRowListItemSelected")
     m.rowList.content = rowsData
 
     m.rowAnimation.control = "start"
@@ -41,19 +46,26 @@ sub nowPlayingContentChanged(data)
     m.rowList.setFocus(true)
 end sub
 
-sub onRowListItemSelected(evt as object)
-    rowItemSelected = evt.getData()
-    selectedRowIndex = rowItemSelected[0]
-    selectedColumnIndex = rowItemSelected[1]
+function getRowItem(rowItemCoordinates)
+    selectedRowIndex = rowItemCoordinates[0]
+    selectedColumnIndex = rowItemCoordinates[1]
 
     ' Get the row
     selectedRow = m.content.getChild(selectedRowIndex)
     ' get by the column
     selectedItem = selectedRow.getChild(selectedColumnIndex)
 
+    return selectedItem
+end function
+
+sub onRowListItemSelected(evt as object)
+    rowItemSelected = evt.getData()
+    selectedItem = getRowItem(rowItemSelected)
+
     movieId = selectedItem.videoId
 
     m.rowList.opacity = 0.0
+    m.sampleHero.opacity = 0.0
 
     m.global.navigateTo = {
         page: "DetailsPage",
@@ -61,6 +73,21 @@ sub onRowListItemSelected(evt as object)
             movieId: movieId
         }
     }
+end sub
+
+sub onRowItemFocused(evt as object)
+    rowItemFocused = evt.getData()
+    focusedItem = getRowItem(rowItemFocused)
+
+    m.sampleHero.uri = focusedItem.backdropPath
+end sub
+
+sub onHeroLoadStatusChanged(evt as object)
+    loadStatus = evt.getData()
+
+    if loadStatus = "ready"
+        m.heroAnimation.control = "start"
+    end if
 end sub
 
 function onKeyEvent(key as String, pressed as boolean) as Boolean

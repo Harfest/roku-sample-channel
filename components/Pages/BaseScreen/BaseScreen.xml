@@ -2,6 +2,8 @@
 <component name="BaseScreen" extends="Group">
 	<interface>
         <field id="initData" type="assocArray" />
+
+		<function name="onScreenEnter"/>
 	</interface>
 	<script type="text/brightscript" uri="pkg:/components/Pages/BaseScreen/BaseScreen.brs"></script>
 </component>

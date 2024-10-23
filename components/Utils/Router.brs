@@ -51,6 +51,7 @@ sub navigate(event as object)
 
     ' Place the new screen as child of the router outlet
     m.routerOutlet.appendChild(newPage)
+    newPage.callFunc("onScreenEnter")
 
     ' Focus on the new screen
     newPage.setFocus(true)
@@ -67,4 +68,5 @@ sub navigateBack()
     ' Focus on the prev page
     prevPage = m.routerOutlet.getChild(m.routerOutlet.getChildCount() - 1)
     prevPage.visible = true
+    prevPage.callFunc("onScreenEnter")
 end sub
