@@ -141,6 +141,7 @@ sub onGetMovieByIdChanged(res as object)
     movieModel.video = data.video
     movieModel.voteAverage = data.vote_average
     movieModel.voteCount = data.vote_count
+    movieModel.videoUrl = "https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_1MB.mp4"
 
     m.top.movieById = movieModel
 end sub

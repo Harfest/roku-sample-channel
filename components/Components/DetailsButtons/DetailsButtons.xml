@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="DetailsButtons" extends="Group">
+    <interface>
+        <field id="command" type="string" alwaysNotify="true" />
+    </interface>
+	<children>
+        <LayoutGroup layoutDirection="horiz" horizAlignment="left" itemSpacings="[25]" >
+            <Rectangle id="playButton" width="162" height="57" color="0x142CffFF" opacity="0.7">
+                <Label id="playLabel" text="Play" horizAlign="center" vertAlign="center" width="162" height="57" />
+            </Rectangle>
+
+            <Rectangle id="rateButton" width="162" height="56" color="0x142CffFF" opacity="0.7">
+                <Label id="rateLabel" text="Rate" horizAlign="center" vertAlign="center" width="162" height="57" />
+            </Rectangle>
+        </LayoutGroup>
+    </children>
+    <script type="text/brightscript" uri="pkg:/components/Components/DetailsButtons/DetailsButtons.brs"></script>
+</component>

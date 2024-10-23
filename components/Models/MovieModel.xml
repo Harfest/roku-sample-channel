@@ -27,6 +27,7 @@
         <field id="video" type="boolean" />
         <field id="voteAverage" type="integer" />
         <field id="voteCount" type="integer" />
+        <field id="videoUrl" type="string" />
     </interface>
 	<script type="text/brightscript" uri="pkg:/components/Services/IMDB_Service.brs"></script>
 </component>
