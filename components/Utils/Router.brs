@@ -17,6 +17,7 @@ sub navigateToHome()
 
     m.routerOutlet.appendChild(homePage)
     homePage.setFocus(true)
+    m.top.signalBeacon("AppLaunchComplete")
 end sub
 
 sub navigate(event as object)

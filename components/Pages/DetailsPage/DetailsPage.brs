@@ -113,7 +113,7 @@ sub onMovieProgressChanged(evt as object)
 end sub
 
 sub removePlayer()
-    ? "Remove player"
+    m.videoPlayer.control = "stop" ' If I want to launche the beacon signals everytime, I need to stop the player
     m.videoPlayer.visible = false
     m.detailsCtas.setFocus(true)
 end sub
