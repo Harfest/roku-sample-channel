@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="BaseModel" extends="ContentNode">
+    <interface>
+        <field id="modelContent" type="assocArray"/>
+
+        <function name="processModel" />
+    </interface>
+	<script type="text/brightscript" uri="pkg:/components/Models/BaseModel/BaseModel.brs"></script>
+	<script type="text/brightscript" uri="pkg:/components/Utils/Images.brs"></script>
+</component>

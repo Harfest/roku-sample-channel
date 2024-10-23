@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="ItemModel" extends="ContentNode">
+<component name="ItemModel" extends="BaseModel">
     <interface>
         <field id="adult" type="boolean" />
         <field id="backdropPath" type="string" />
@@ -16,5 +16,5 @@
         <field id="voteAverage" type="float" />
         <field id="voteCount" type="float" />
     </interface>
-	<script type="text/brightscript" uri="pkg:/components/Services/IMDB_Service.brs"></script>
+	<script type="text/brightscript" uri="pkg:/components/Models/ItemModel/ItemModel.brs"></script>
 </component>
