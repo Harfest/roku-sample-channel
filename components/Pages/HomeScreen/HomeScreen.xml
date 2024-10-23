@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="PageA" extends="BaseScreen">
+<component name="HomeScreen" extends="BaseScreen">
 	<interface>
 	</interface>
 	<children>
@@ -22,11 +22,8 @@
 				<!-- If the array contains fewer elements than the number of rows in the data model, the y-dimension value of the itemSize field is used as the height of the extra rows. -->
 
 				<Animation id="rowOpacityAnimation" duration="1" repeat="false" easeFunction="linear" >
-					<FloatFieldInterpolator id="opacityInterpolation"
-						key="[0.0, 1.0]"
-						keyValue="[ 0.0, 1.0 ]"
-					fieldToInterp="rowList.opacity" />
+					<FloatFieldInterpolator id="opacityInterpolation" key="[0.0, 1.0]" keyValue="[ 0.0, 1.0 ]" fieldToInterp="rowList.opacity" />
 				</Animation>
     </children>
-	<script type="text/brightscript" uri="pkg:/components/Pages/PageA/PageA.brs"></script>
+	<script type="text/brightscript" uri="pkg:/components/Pages/HomeScreen/HomeScreen.brs"></script>
 </component>

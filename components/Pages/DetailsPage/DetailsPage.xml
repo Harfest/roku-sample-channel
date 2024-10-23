@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<component name="PageB" extends="BaseScreen">
-	<script type="text/brightscript" uri="pkg:/components/Pages/PageB/PageB.brs"></script>
+<component name="DetailsPage" extends="BaseScreen">
 	<children>
 		<Poster id="bgPoster" loadDisplayMode="scaleToFill" width="1920" height="1080" blendColor="0x6B6A6AFF" opacity="0.0" />
 		<LayoutGroup id="metadataContainer" itemSpacings="[21]" translation="[120, 150]" opacity="0.0">
@@ -23,4 +22,5 @@
         </Animation>
 
     </children>
+	<script type="text/brightscript" uri="pkg:/components/Pages/DetailsPage/DetailsPage.brs"></script>
 </component>

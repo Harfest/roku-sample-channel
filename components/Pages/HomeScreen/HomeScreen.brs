@@ -56,7 +56,7 @@ sub onRowListItemSelected(evt as object)
     m.rowList.opacity = 0.0
 
     m.global.navigateTo = {
-        page: "PageB",
+        page: "DetailsPage",
         initData: {
             movieId: movieId
         }

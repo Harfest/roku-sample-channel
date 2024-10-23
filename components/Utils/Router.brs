@@ -12,7 +12,7 @@ sub setupOutletNode()
 end sub
 
 sub navigateToHome()
-    homePage = createObject("roSGNode", "PageA")
+    homePage = createObject("roSGNode", "HomeScreen")
     m.stack.push(homePage)
 
     m.routerOutlet.appendChild(homePage)
