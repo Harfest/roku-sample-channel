@@ -1,7 +1,8 @@
 sub init()
     m.content = invalid
-    m.tmdbService = createObject("roSGNode", "IMDBService")
-    m.tmdbService.callFunc("getNowPlaying")
+    ' Create a task
+    m.nowPlayingTask = createObject("roSGNode", "TMDBNowPlaying")
+    m.nowPlayingTask.control = "RUN"
 
     setupRefs()
 
@@ -15,13 +16,15 @@ sub setupRefs()
     m.rowList = top.findNode("rowList")
     m.sampleHero = top.findNode("sampleHero")
 
+    ' Tasks fields
+    m.nowPlayingTask.observeField("content", "nowPlayingContentChanged")
+
     ' Animation
     m.rowAnimation = top.findNode("rowOpacityAnimation")
     m.heroAnimation = top.findNode("heroOpacityAnimation")
 end sub
 
 sub setupObservers()
-    m.tmdbService.observeField("nowPlayingContent", "nowPlayingContentChanged")
     m.sampleHero.observeFieldScoped("loadStatus", "onHeroLoadStatusChanged")
     m.rowList.observeField("rowItemSelected", "onRowListItemSelected")
     m.rowList.observeField("rowItemFocused", "onRowItemFocused")

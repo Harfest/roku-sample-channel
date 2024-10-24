@@ -22,7 +22,7 @@ splash_screen_sd=pkg:/images/splash-screen_sd.jpg
 ui_resolutions=fhd
 
 splash_color=#CCCCCC
-splash_min_time=1
+splash_min_time=2
 
 base_url=https://api.themoviedb.org/3
 base_img_url=https://image.tmdb.org/t/p/w300

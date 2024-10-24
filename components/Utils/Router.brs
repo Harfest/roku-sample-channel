@@ -17,6 +17,7 @@ sub navigateToHome()
 
     m.routerOutlet.appendChild(homePage)
     homePage.setFocus(true)
+    homePage.callFunc("onScreenEnter")
     m.top.signalBeacon("AppLaunchComplete")
 end sub
 

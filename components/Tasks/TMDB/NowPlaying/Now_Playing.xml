@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="TMDBNowPlaying" extends="BaseTask">
+	<interface>
+	</interface>
+	<script type="text/brightscript" uri="pkg:/components/Tasks/TMDB/NowPlaying/Now_Playing.brs"></script>
+	<script type="text/brightscript" uri="pkg:/components/Services/TMDB_Service.brs"></script>
+</component>

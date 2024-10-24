@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<component name="BaseTask" extends="Task">
+	<interface>
+        <field id="content" type="node" />
+		
+		<function name="setupTask"/>
+	</interface>
+	<script type="text/brightscript" uri="pkg:/components/Tasks/BaseTask/BaseTask.brs"></script>
+</component>

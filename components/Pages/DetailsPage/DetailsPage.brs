@@ -1,6 +1,6 @@
 sub init()
     m.content = invalid
-    m.tmdbService = createObject("roSGNode", "IMDBService")
+    m.movieByIdTask = createObject("roSGNode", "TMDBMovieById")
 
     setupRefs()
 
@@ -24,9 +24,10 @@ sub setupRefs()
 end sub
 
 sub setupObservers()
-    m.tmdbService.observeField("movieById", "movieByIdChanged")
+    m.top.observeFieldScoped("initData", "initDataReceived")
+
+    m.movieByIdTask.observeField("content", "movieByIdChanged")
     m.detailsCtas.observeField("command", "onButtonPressed")
-    m.top.observeField("initData", "initDataReceived")
 end sub
 
 sub initDataReceived(evt)
@@ -34,7 +35,8 @@ sub initDataReceived(evt)
 
     movieId = initData["movieId"]
 
-    m.tmdbService.callFunc("getMovieById", movieId)
+    m.movieByIdTask.movieId = movieId
+    m.movieByIdTask.control = "RUN"
 end sub
 
 sub onScreenEnter()
